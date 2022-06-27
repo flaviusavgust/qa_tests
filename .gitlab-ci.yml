@@ -1,0 +1,19 @@
+stages:
+  - test
+
+variables:
+  ALLURE_LAUNCH_NAME: "${CI_PROJECT_NAME} - ${CI_COMMIT_SHORT_SHA}"
+  ALLURE_LAUNCH_TAGS: "regular, ${CI_COMMIT_REF_NAME}"
+  ALLURE_TESTPLAN_PATH: "./testplan.json"
+  ALLURE_RESULTS: "allure-results"
+
+test:
+  stage: test
+  script:
+    - /Users/muratisaev/Desktop/allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
+    - /Users/muratisaev/Desktop/allurectl watch -- python3 -m pytest src --alluredir=${ALLURE_RESULTS}
+
+  tags:
+    - appium
+
+

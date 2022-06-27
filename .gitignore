@@ -1,0 +1,9 @@
+report/
+.idea/
+.pytest_cache/
+venv/
+app.log
+tests.py
+app
+poligon.py
+lol.py
